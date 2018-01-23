@@ -12,17 +12,24 @@ function Game (mainSite) {
     self.gameGrid.setAttribute('id', 'grid');
     self.game.appendChild(self.gameGrid);
 
-    self.obstacle = document.createElement('div');
-    self.obstacle.setAttribute('id', 'bump');
-    self.obstacle.style.display = 'none';
-    self.gameGrid.appendChild(self.obstacle);
-
     self.character = document.createElement('div');
     self.character.setAttribute('id', 'player');
     self.gameGrid.appendChild(self.character);
 
+    function createObstacle () {
+
+        self.obstacle = document.createElement('div');
+        self.obstacle.setAttribute('id', 'bump');
+        self.obstacleLeft = 0;
+        self.gameGrid.appendChild(self.obstacle);
+
+    }
+
+    createObstacle();
+
     function moveObstacle () {
     self.obstacle;
+    self.obstacle.style.display = 'none';
     self.pos = -75;
     self.id = setInterval(frame, 10);
     function frame () {
@@ -37,8 +44,28 @@ function Game (mainSite) {
         if (self.pos === 600) {
             self.obstacle.remove();
         }
+
+        check();
         
     }
+
+    }
+
+    function check () {
+
+        self.obstacleTop = parseInt(self.obstacle.style.top);
+        self.obstacleHeight = parseInt(self.obstacle.clientHeight);
+        // var obstacleLeft = parseInt(obstacle.style.left);
+        self.obstacleWidth = parseInt(self.obstacle.clientWidth);
+      
+        self.characterTop = 530;
+        self.characterWidth = parseInt(self.character.clientWidth);
+      
+        if (self.obstacleTop+self.obstacleHeight > self.characterTop 
+          && self.obstacleLeft+self.obstacleWidth > self.characterLeft 
+          && self.obstacleLeft < self.characterLeft+self.characterWidth) {
+            console.log('does this even works?');
+        }
 
     }
 
