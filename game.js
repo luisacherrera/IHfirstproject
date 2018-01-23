@@ -1,56 +1,81 @@
 'use strict';
 
-game = document.createElement('div');
-game.setAttribute('id', 'game');
 
-var gameGrid = document.createElement('div');
-gameGrid.setAttribute('id', 'grid');
-game.appendChild(gameGrid);
+function Game (mainSite) {
 
-var obstacle = document.createElement('div');
-obstacle.setAttribute('id', 'bump');
-gameGrid.appendChild(obstacle);
+    var self = this;
 
-var character = document.createElement('div');
-character.setAttribute('id', 'player');
-gameGrid.appendChild(character);
+    self.game = document.createElement('div');
+    self.game.setAttribute('id', 'game');
 
-function moveObstacle () {
-  obstacle;
-  var pos = -75;
-  var id = setInterval(frame, 10);
-  function frame () {
-    if (pos === 600) {
-      obstacle.remove();
-    } else {
-      pos++;
-      obstacle.style.top = pos + 'px';
+    self.gameGrid = document.createElement('div');
+    self.gameGrid.setAttribute('id', 'grid');
+    self.game.appendChild(self.gameGrid);
+
+    self.obstacle = document.createElement('div');
+    self.obstacle.setAttribute('id', 'bump');
+    self.obstacle.style.display = 'none';
+    self.gameGrid.appendChild(self.obstacle);
+
+    self.character = document.createElement('div');
+    self.character.setAttribute('id', 'player');
+    self.gameGrid.appendChild(self.character);
+
+    function moveObstacle () {
+    self.obstacle;
+    self.pos = -75;
+    self.id = setInterval(frame, 10);
+    function frame () {
+       
+        self.pos++;
+        self.obstacle.style.top = self.pos + 'px';
+
+        if (self.pos > 0) {
+            self.obstacle.style.display = 'block';
+        }
+
+        if (self.pos === 600) {
+            self.obstacle.remove();
+        }
+        
     }
-  }
+
+    }
+
+    moveObstacle();
+
+    self.characterLeft = 0;
+
+    function moveCharacter(e) {
+    if (e.keyCode==37) {
+        self.characterLeft -= 100;
+        self.character.style.left = self.characterLeft + 'px';
+        if (self.characterLeft <=-10) {
+            self.characterLeft +=100;
+            self.character.style.left = self.characterLeft + 'px';
+        }
+    }
+    
+    if (e.keyCode==39) {
+        self.characterLeft += 100;
+        self.character.style.left = self.characterLeft + 'px';
+        if (self.characterLeft >=310) {
+            self.characterLeft -=100;
+            self.character.style.left = self.characterLeft + 'px';
+        }
+    }
+    }
+
+    document.onkeydown = moveCharacter;
+
+    mainSite.appendChild(self.game);
+
 }
 
-moveObstacle();
+Game.prototype.destroy = function () {
+    
+    var self = this;
 
-var characterLeft = 0;
+    self.game.remove();
 
-function moveCharacter(e) {
-  if (e.keyCode==37) {
-    characterLeft -= 100;
-    character.style.left = characterLeft + 'px';
-    if (characterLeft <=-10) {
-      characterLeft +=100;
-      character.style.left = characterLeft + 'px';
-    }
-  }
-  
-  if (e.keyCode==39) {
-    characterLeft += 100;
-    character.style.left = characterLeft + 'px';
-    if (characterLeft >=310) {
-      characterLeft -=100;
-      character.style.left = characterLeft + 'px';
-    }
-  }
 }
-
-document.onkeydown = moveCharacter

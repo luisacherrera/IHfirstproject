@@ -13,6 +13,7 @@ html {
   
   body {
       background-color: black;
+      position: relative;
   }
   
   /* ---- layout ---- */
@@ -45,6 +46,15 @@ html {
     margin-top: 20px;
   }
 
+  #falcon {
+    width: 200px;
+    height: 150px;
+    background-image: url('./images/millenium_falcon.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+  }
+
   /* #game {
 
   } */
@@ -71,7 +81,7 @@ html {
     position: absolute;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 530px;
+    top: 530px;
     background: black;
     left: 0;
   }
