@@ -5,6 +5,8 @@ function Game (mainSite) {
 
     var self = this;
 
+    // GAMEGRID
+
     self.game = document.createElement('div');
     self.game.setAttribute('id', 'game');
 
@@ -12,9 +14,37 @@ function Game (mainSite) {
     self.gameGrid.setAttribute('id', 'grid');
     self.game.appendChild(self.gameGrid);
 
+    // PLAYER
+
     self.character = document.createElement('div');
     self.character.setAttribute('id', 'player');
     self.gameGrid.appendChild(self.character);
+
+    self.characterLeft = 0;
+
+    function moveCharacter(e) {
+    if (e.keyCode==37) {
+        self.characterLeft -= 100;
+        self.character.style.left = self.characterLeft + 'px';
+        if (self.characterLeft <=-10) {
+            self.characterLeft +=100;
+            self.character.style.left = self.characterLeft + 'px';
+        }
+    }
+    
+    if (e.keyCode==39) {
+        self.characterLeft += 100;
+        self.character.style.left = self.characterLeft + 'px';
+        if (self.characterLeft >=310) {
+            self.characterLeft -=100;
+            self.character.style.left = self.characterLeft + 'px';
+        }
+    }
+    }
+
+    document.onkeydown = moveCharacter;
+
+    // OBSTACLES
 
     function createObstacle () {
 
@@ -51,11 +81,12 @@ function Game (mainSite) {
 
     }
 
+    // COLLISION BETWEEN PLAYER AND OBSTACLE
+
     function check () {
 
         self.obstacleTop = parseInt(self.obstacle.style.top);
         self.obstacleHeight = parseInt(self.obstacle.clientHeight);
-        // var obstacleLeft = parseInt(obstacle.style.left);
         self.obstacleWidth = parseInt(self.obstacle.clientWidth);
       
         self.characterTop = 530;
@@ -70,30 +101,6 @@ function Game (mainSite) {
     }
 
     moveObstacle();
-
-    self.characterLeft = 0;
-
-    function moveCharacter(e) {
-    if (e.keyCode==37) {
-        self.characterLeft -= 100;
-        self.character.style.left = self.characterLeft + 'px';
-        if (self.characterLeft <=-10) {
-            self.characterLeft +=100;
-            self.character.style.left = self.characterLeft + 'px';
-        }
-    }
-    
-    if (e.keyCode==39) {
-        self.characterLeft += 100;
-        self.character.style.left = self.characterLeft + 'px';
-        if (self.characterLeft >=310) {
-            self.characterLeft -=100;
-            self.character.style.left = self.characterLeft + 'px';
-        }
-    }
-    }
-
-    document.onkeydown = moveCharacter;
 
     mainSite.appendChild(self.game);
 
