@@ -1,14 +1,17 @@
 'use strict';
 
-function Character (gameGrid, playerWidth) {
+function Character (gameGrid) {
+
     self.character = document.createElement('div');
     self.character.setAttribute('id', 'player');
-    playerWidth = parseInt(self.character.clientWidth);
     gameGrid.appendChild(self.character);
 
     self.characterLeft = 0;
 
-    function moveCharacter(e) {
+}
+
+Character.prototype.moveCharacter = function (e) {
+
     if (e.keyCode==37) {
         self.characterLeft -= 100;
         self.character.style.left = self.characterLeft + 'px';
@@ -26,7 +29,7 @@ function Character (gameGrid, playerWidth) {
             self.character.style.left = self.characterLeft + 'px';
         }
     }
-    }
 
-    document.onkeydown = moveCharacter;
 }
+
+

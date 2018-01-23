@@ -16,78 +16,17 @@ function Game (mainSite) {
 
     var gameGrid = self.gameGrid;
 
-    var playerWidth = self.playerWidth;
+    //PLAYER
 
-    self.player = new Character(gameGrid, playerWidth);
+    self.player = new Character(gameGrid);
 
-    // PLAYER
+    document.onkeydown = self.player.moveCharacter;
 
-    // self.character = document.createElement('div');
-    // self.character.setAttribute('id', 'player');
-    // self.gameGrid.appendChild(self.character);
-
-    // self.characterLeft = 0;
-
-    // function moveCharacter(e) {
-    // if (e.keyCode==37) {
-    //     self.characterLeft -= 100;
-    //     self.character.style.left = self.characterLeft + 'px';
-    //     if (self.characterLeft <=-10) {
-    //         self.characterLeft +=100;
-    //         self.character.style.left = self.characterLeft + 'px';
-    //     }
-    // }
-    
-    // if (e.keyCode==39) {
-    //     self.characterLeft += 100;
-    //     self.character.style.left = self.characterLeft + 'px';
-    //     if (self.characterLeft >=310) {
-    //         self.characterLeft -=100;
-    //         self.character.style.left = self.characterLeft + 'px';
-    //     }
-    // }
-    // }
-
-    // document.onkeydown = moveCharacter;
+    //OBSTACLES
 
     self.obstacle = new Obstacle (gameGrid);
 
-    // OBSTACLES
-
-    // function createObstacle () {
-
-    //     self.obstacle = document.createElement('div');
-    //     self.obstacle.setAttribute('id', 'bump');
-    //     self.obstacleLeft = 0;
-    //     self.gameGrid.appendChild(self.obstacle);
-
-    // }
-
-    // createObstacle();
-
-    // function moveObstacle () {
-    // self.obstacle;
-    // self.obstacle.style.display = 'none';
-    // self.pos = -75;
-    // self.id = setInterval(frame, 10);
-    // function frame () {
-       
-    //     self.pos++;
-    //     self.obstacle.style.top = self.pos + 'px';
-
-    //     if (self.pos > 0) {
-    //         self.obstacle.style.display = 'block';
-    //     }
-
-    //     if (self.pos === 600) {
-    //         self.obstacle.remove();
-    //     }
-
-    //     check();
-        
-    // }
-
-    // }
+    self.obstacle.moveObstacle();
 
     // COLLISION BETWEEN PLAYER AND OBSTACLE
 

@@ -14,11 +14,6 @@ function main () {
 
   var startButton;
 
-  var startGame = function () {
-    destroyStart();
-    buildGame();
-  };
-
   function buildStart () {
 
     stage = 'startScreen'; 
@@ -76,6 +71,11 @@ function main () {
 
   }
 
+  function startGame () {
+    destroyStart();
+    buildGame();
+  };
+
   //GAME
 
   function buildGame () {
@@ -102,13 +102,6 @@ function main () {
   var gameOverElement;
 
   var playAgainButton;
-
-  var startAgain = function () {
-
-    destroyGameOver();
-    buildGame();
-
-  }
 
   function buildGameOver () {
 
@@ -140,6 +133,13 @@ function main () {
     playAgainButton.removeEventListener('click', startAgain);
     
     gameOverElement.remove();
+
+  }
+
+  function startAgain () {
+
+    destroyGameOver();
+    buildGame();
 
   }
 
