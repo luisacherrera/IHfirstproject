@@ -1,5 +1,7 @@
 'use strict';
 
+//NOT USING THIS RIGHT NOW
+
 function Obstacle (gameGrid) {
 
     self.obstacle = document.createElement('div');
@@ -9,28 +11,27 @@ function Obstacle (gameGrid) {
 
 }
 
-Obstacle.prototype.moveObstacle = function () {
+Obstacle.prototype.getObstacleLeft = function () {
 
-    self.obstacle;
-    self.obstacle.style.display = 'none';
-    self.pos = -75;
-    self.id = setInterval(frame, 10);
-    function frame () {
-       
-        self.pos++;
-        self.obstacle.style.top = self.pos + 'px';
+    return parseInt(self.obstacleLeft);
 
-        if (self.pos > 0) {
-            self.obstacle.style.display = 'block';
-        }
+}
 
-        if (self.pos === 600) {
-            self.obstacle.remove();
-        }
+Obstacle.prototype.getObstacleWidth = function () {
 
-        // check();
-        
-    }
+    return parseInt(self.obstacle.clientWidth);
+
+}
+
+Obstacle.prototype.getObstacleTop = function () {
+
+    return parseInt(self.obstacle.style.top);
+
+}
+
+Obstacle.prototype.getObstacleHeight = function () {
+
+    return parseInt(self.obstacle.clientHeight);
 
 }
 

@@ -62,6 +62,8 @@ html {
   #grid {
     width: 400px;
     height: 600px;
+    margin-top: 50px;
+    margin-left: 100px;
     position: relative;
     background: #FEDD00;
   }

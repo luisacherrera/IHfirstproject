@@ -1,35 +1,66 @@
 'use strict';
 
-function Character (gameGrid) {
+function Player (gameGrid) {
 
-    self.character = document.createElement('div');
-    self.character.setAttribute('id', 'player');
-    gameGrid.appendChild(self.character);
+    var self = this;
 
-    self.characterLeft = 0;
+    self.player = document.createElement('div');
+    self.player.setAttribute('id', 'player');
+    gameGrid.appendChild(self.player);
+
+    self.playerLeft = 0;
+    self.playerTop = 530;
+    self.playerWidth = 80;
 
 }
 
-Character.prototype.moveCharacter = function (e) {
+Player.prototype.movePlayer = function (e) {
 
+    var self = this;
+    
     if (e.keyCode==37) {
-        self.characterLeft -= 100;
-        self.character.style.left = self.characterLeft + 'px';
-        if (self.characterLeft <=-10) {
-            self.characterLeft +=100;
-            self.character.style.left = self.characterLeft + 'px';
+        self.playerLeft -= 100;
+        self.player.style.left = self.playerLeft + 'px';
+        if (self.playerLeft <=-10) {
+            self.playerLeft +=100;
+            self.player.style.left = self.playerLeft + 'px';
         }
     }
     
     if (e.keyCode==39) {
-        self.characterLeft += 100;
-        self.character.style.left = self.characterLeft + 'px';
-        if (self.characterLeft >=310) {
-            self.characterLeft -=100;
-            self.character.style.left = self.characterLeft + 'px';
+        self.playerLeft += 100;
+        self.player.style.left = self.playerLeft + 'px';
+        if (self.playerLeft >=310) {
+            self.playerLeft -=100;
+            self.player.style.left = self.playerLeft + 'px';
         }
     }
 
 }
+
+Player.prototype.getPlayerLeft = function () {
+
+    var self = this;
+
+    return self.playerLeft;
+
+}
+
+Player.prototype.getPlayerWidth = function () {
+
+    var self = this;
+
+    return self.playerWidth;
+
+}
+
+Player.prototype.getPlayerTop = function () {
+
+    var self = this;
+
+    return self.playerTop;
+
+}
+
 
 

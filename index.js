@@ -89,6 +89,8 @@ function main () {
       buildGameOver();
     }, 7000);
 
+    // game.moveObstacle();
+
   }
 
   function destroyGame () {
