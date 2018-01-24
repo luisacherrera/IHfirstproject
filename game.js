@@ -16,6 +16,10 @@ function Game (mainSite) {
     self.gameGrid = document.createElement('div');
     self.gameGrid.setAttribute('id', 'grid');
     self.game.appendChild(self.gameGrid);
+
+    // SCORE
+
+
     
     // PLAYER
 
@@ -30,20 +34,21 @@ function Game (mainSite) {
 
     // OBSTACLES
 
+    
     self.obstacle = document.createElement('div');
     self.obstacle.setAttribute('id', 'bump');
     self.obstacleLeft = 0;
     self.gameGrid.appendChild(self.obstacle);
 
-    setInterval (changeLe, 1500)
+    setInterval (changeLe, 1000)
 
     function changeLe () {
 
         self.obstacleLeft += 100;
         self.obstacle.style.left =self.obstacleLeft + 'px';
 
-        if (self.obstacleLeft > 400) {
-            self.obstacle.remove();
+        if (self.obstacleLeft === 400) {
+            self.obstacleLeft = -100;
         }
 
     }
@@ -97,7 +102,9 @@ Game.prototype.check = function () {
     var notOnRight = self.obstacleLeft < self.player.getPlayerLeft()+self.playerWidth;
 
     if (notOnTop && notOnLeft && notOnRight) {
+        
         self.onEnded();
+
     }
 
 }
