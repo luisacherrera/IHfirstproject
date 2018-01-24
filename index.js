@@ -84,12 +84,10 @@ function main () {
 
     game = new Game(mainSite);
 
-    window.setTimeout(function () {
+    game.onGameOver(function () {
       destroyGame();
       buildGameOver();
-    }, 7000);
-
-    // game.moveObstacle();
+    });
 
   }
 

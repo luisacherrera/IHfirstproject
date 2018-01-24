@@ -74,7 +74,9 @@ html {
     position: absolute;
     margin-left: 10px;
     margin-right: 10px;
-    background: black;
+    background-image: url('./images/meteor.png');
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 
   #player {
@@ -84,7 +86,9 @@ html {
     margin-left: 10px;
     margin-right: 10px;
     top: 530px;
-    background: black;
+    background-image: url('./images/monochrome.png');
+    background-repeat: no-repeat;
+    background-size: contain;
     left: 0;
   }
 
