@@ -33,14 +33,19 @@ function Game (mainSite) {
 
     // OBSTACLES
 
-    // self.obstaclesArray = []
+    self.obstaclesArray = [];
 
-    // self.obstaclesArray.push(new Obstacle(gameGrid));
+    self.counter = 100;
+    setInterval(function (){
+        
+        self.counter --;
+        
+        if (self.counter >= 0){
+            self.obstaclesArray.push(new Obstacle(gameGrid));
+        }
 
-    // self.obstacle = self.obstaclesArray[i];
-
-    self.obstacle = new Obstacle(gameGrid);
-
+    },1500);
+    
     self.updateObstacle();
 
     mainSite.appendChild(self.game);
@@ -51,21 +56,27 @@ Game.prototype.updateObstacle = function () {
 
     var self = this;
 
+
     self.newInterval = setInterval(function () {
-        self.obstacle.moveObstacle();
-        self.check();
+        
+        self.obstaclesArray.forEach(function (obstacle) {
+            obstacle.moveObstacle();
+            self.check(obstacle);
+        })
+
     }, 10)
+    
 
 }
 
-Game.prototype.check = function () {
+Game.prototype.check = function (obstacle) {
 
     var self = this;
 
-    var collideTop = self.obstacle.getObstacleTop()+self.obstacle.getObstacleHeight() > self.player.getPlayerTop();
-    var collideBottom = self.obstacle.getObstacleTop()+self.obstacle.getObstacleHeight() < self.player.getPlayerBottom()
-    var collideLeft = self.obstacle.getObstacleLeft()+self.obstacle.getObstacleWidth() > self.player.getPlayerLeft();
-    var collideRight = self.obstacle.getObstacleLeft() < self.player.getPlayerLeft()+self.player.getPlayerWidth();
+    var collideTop = obstacle.getObstacleTop()+obstacle.getObstacleHeight() > self.player.getPlayerTop();
+    var collideBottom = obstacle.getObstacleTop()+obstacle.getObstacleHeight() < self.player.getPlayerBottom()
+    var collideLeft = obstacle.getObstacleLeft()+obstacle.getObstacleWidth() > self.player.getPlayerLeft();
+    var collideRight = obstacle.getObstacleLeft() < self.player.getPlayerLeft()+self.player.getPlayerWidth();
 
     if (collideTop && collideBottom && collideLeft && collideRight) {
         

@@ -28,10 +28,6 @@ Obstacle.prototype.moveObstacle = function () {
     self.obstacleLeft += 1;
 
     self.obstacle.style.left =self.obstacleLeft + 'px';
-
-    if (self.pos > 0) {
-        self.obstacle.style.display = 'block';
-    }
         
     if (self.obstacleLeft === 400) {
         self.obstacleLeft = -100;
