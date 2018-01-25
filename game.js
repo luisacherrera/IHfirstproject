@@ -17,13 +17,13 @@ function Game (mainSite) {
     self.gameGrid.setAttribute('id', 'grid');
     self.game.appendChild(self.gameGrid);
 
+    var gameGrid = self.gameGrid;
+
     // SCORE
 
 
     
     // PLAYER
-
-    var gameGrid = self.gameGrid;
 
     self.player = new Player(gameGrid);
 
@@ -34,58 +34,34 @@ function Game (mainSite) {
 
     // OBSTACLES
 
-    
-    self.obstacle = document.createElement('div');
-    self.obstacle.setAttribute('id', 'bump');
-    self.obstacleLeft = 0;
-    self.gameGrid.appendChild(self.obstacle);
+    self.obstacle = new Obstacle(gameGrid);
 
-    setInterval (changeLe, 1000)
+    self.updateObstacle();
 
-    function changeLe () {
+    // function duplicate () {
+    //     self.obstacle = self.original.cloneNode(true);
+    //     self.original.parentNode.appendChild(self.obstacle);
+        
+    //     self.moveObstacle();
 
-        self.obstacleLeft += 100;
-        self.obstacle.style.left =self.obstacleLeft + 'px';
+    //     self.changeLeftObstacle();
+    // }
 
-        if (self.obstacleLeft === 400) {
-            self.obstacleLeft = -100;
-        }
-
-    }
-
-
-
-    self.moveObstacle();
+    // setInterval (duplicate, 1000);
 
     mainSite.appendChild(self.game);
 
-
 }
 
-Game.prototype.moveObstacle = function () {
+Game.prototype.updateObstacle = function () {
 
     var self = this;
 
-    self.obstacle;
-    self.obstacle.style.display = 'none';
-    self.pos = -75;
-    setInterval(frame, 10);
-    function frame () {
-        
-        self.pos++;
-        self.obstacle.style.top = self.pos + 'px';
-
-        if (self.pos > 0) {
-            self.obstacle.style.display = 'block';
-        }
-
-        if (self.pos === 600) {
-            self.obstacle.remove();
-        }
-
+    self.newInterval = setInterval(function () {
+        self.obstacle.moveObstacle();
+        self.obstacle.changeObstacleLeft();
         self.check();
-        
-    }
+    }, 10)
 
 }
 
@@ -93,16 +69,13 @@ Game.prototype.check = function () {
 
     var self = this;
 
-    self.obstacleTop = parseInt(self.obstacle.style.top);
-    self.obstacleHeight = parseInt(self.obstacle.clientHeight);
-    self.obstacleWidth = parseInt(self.obstacle.clientWidth);
-
-    var notOnTop = self.obstacleTop+self.obstacleHeight > self.playerTop;
-    var notOnLeft = self.obstacleLeft+self.obstacleWidth > self.player.getPlayerLeft();
-    var notOnRight = self.obstacleLeft < self.player.getPlayerLeft()+self.playerWidth;
+    var notOnTop = self.obstacle.getObstacleTop()+self.obstacle.getObstacleHeight() > self.player.getPlayerTop();
+    var notOnLeft = self.obstacle.getObstacleLeft()+self.obstacle.getObstacleWidth() > self.player.getPlayerLeft();
+    var notOnRight = self.obstacle.getObstacleLeft() < self.player.getPlayerLeft()+self.player.getPlayerWidth();
 
     if (notOnTop && notOnLeft && notOnRight) {
         
+        clearInterval(self.newInterval);
         self.onEnded();
 
     }

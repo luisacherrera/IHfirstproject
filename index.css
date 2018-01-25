@@ -68,7 +68,7 @@ html {
     background: #FEDD00;
   }
 
-  #bump {
+  .bump {
     width: 80px;
     height: 70px;
     position: absolute;
