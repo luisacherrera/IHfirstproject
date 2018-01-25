@@ -6,7 +6,7 @@ function Game (mainSite) {
 
     var self = this;
 
-    self.onEnded
+    self.onEnded;
 
     // GAMEGRID
 
@@ -31,23 +31,17 @@ function Game (mainSite) {
     self.playerWidth = self.player.getPlayerWidth();
     document.onkeydown = self.player.movePlayer.bind(self.player);
 
-
     // OBSTACLES
+
+    // self.obstaclesArray = []
+
+    // self.obstaclesArray.push(new Obstacle(gameGrid));
+
+    // self.obstacle = self.obstaclesArray[i];
 
     self.obstacle = new Obstacle(gameGrid);
 
     self.updateObstacle();
-
-    // function duplicate () {
-    //     self.obstacle = self.original.cloneNode(true);
-    //     self.original.parentNode.appendChild(self.obstacle);
-        
-    //     self.moveObstacle();
-
-    //     self.changeLeftObstacle();
-    // }
-
-    // setInterval (duplicate, 1000);
 
     mainSite.appendChild(self.game);
 
@@ -59,7 +53,6 @@ Game.prototype.updateObstacle = function () {
 
     self.newInterval = setInterval(function () {
         self.obstacle.moveObstacle();
-        self.obstacle.changeObstacleLeft();
         self.check();
     }, 10)
 
@@ -69,11 +62,12 @@ Game.prototype.check = function () {
 
     var self = this;
 
-    var notOnTop = self.obstacle.getObstacleTop()+self.obstacle.getObstacleHeight() > self.player.getPlayerTop();
-    var notOnLeft = self.obstacle.getObstacleLeft()+self.obstacle.getObstacleWidth() > self.player.getPlayerLeft();
-    var notOnRight = self.obstacle.getObstacleLeft() < self.player.getPlayerLeft()+self.player.getPlayerWidth();
+    var collideTop = self.obstacle.getObstacleTop()+self.obstacle.getObstacleHeight() > self.player.getPlayerTop();
+    var collideBottom = self.obstacle.getObstacleTop()+self.obstacle.getObstacleHeight() < self.player.getPlayerBottom()
+    var collideLeft = self.obstacle.getObstacleLeft()+self.obstacle.getObstacleWidth() > self.player.getPlayerLeft();
+    var collideRight = self.obstacle.getObstacleLeft() < self.player.getPlayerLeft()+self.player.getPlayerWidth();
 
-    if (notOnTop && notOnLeft && notOnRight) {
+    if (collideTop && collideBottom && collideLeft && collideRight) {
         
         clearInterval(self.newInterval);
         self.onEnded();

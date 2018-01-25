@@ -25,33 +25,23 @@ Obstacle.prototype.moveObstacle = function () {
 
     self.obstacle.style.top = self.pos + 'px';
 
+    self.obstacleLeft += 1;
+
+    self.obstacle.style.left =self.obstacleLeft + 'px';
+
     if (self.pos > 0) {
         self.obstacle.style.display = 'block';
+    }
+        
+    if (self.obstacleLeft === 400) {
+        self.obstacleLeft = -100;
     }
 
     if (self.pos === 600) {
         self.obstacle.remove();
     }
-        
-}
-
-
-
-Obstacle.prototype.changeObstacleLeft = function () {
-
-    var self = this;
-
-    self.obstacleLeft += 1;
-
-    self.obstacle.style.left =self.obstacleLeft + 'px';
-
-    if (self.obstacleLeft === 400) {
-        self.obstacleLeft = -100;
-    }
 
 }
-
-
 
 Obstacle.prototype.getObstacleLeft = function () {
 

@@ -11,6 +11,7 @@ function Player (gameGrid) {
     self.playerLeft = 0;
     self.playerTop = 530;
     self.playerWidth = 80;
+    self.playerBottom = 600;
 
 }
 
@@ -59,6 +60,14 @@ Player.prototype.getPlayerTop = function () {
     var self = this;
 
     return self.playerTop;
+
+}
+
+Player.prototype.getPlayerBottom = function () {
+
+    var self = this;
+
+    return self.playerBottom;
 
 }
 
