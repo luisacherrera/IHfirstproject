@@ -13,7 +13,7 @@ function Obstacle (gameGrid) {
 
     self.pos = 0;
 
-    self.obstacleLeft = 0;
+    self.obstacleLeft = Math.floor(Math.random()*100);
 
 }
 
@@ -30,7 +30,7 @@ Obstacle.prototype.moveObstacle = function () {
     self.obstacle.style.left =self.obstacleLeft + 'px';
         
     if (self.obstacleLeft === 400) {
-        self.obstacleLeft = -100;
+        self.obstacleLeft = Math.floor(Math.random()*100);
     }
 
     if (self.pos === 600) {

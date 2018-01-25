@@ -63,7 +63,7 @@ html {
     width: 400px;
     height: 600px;
     margin-top: 50px;
-    margin-left: 100px;
+    margin-left: 200px;
     position: relative;
     background: #FEDD00;
   }
@@ -76,6 +76,7 @@ html {
     margin-right: 10px;
     background-image: url('./images/meteor.png');
     background-repeat: no-repeat;
+    background-position: center;
     background-size: contain;
   }
 
@@ -88,6 +89,7 @@ html {
     top: 530px;
     background-image: url('./images/monochrome.png');
     background-repeat: no-repeat;
+    background-position: center;
     background-size: contain;
     left: 0;
   }

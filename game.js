@@ -36,6 +36,7 @@ function Game (mainSite) {
     self.obstaclesArray = [];
 
     self.counter = 100;
+
     setInterval(function (){
         
         self.counter --;
@@ -56,7 +57,6 @@ Game.prototype.updateObstacle = function () {
 
     var self = this;
 
-
     self.newInterval = setInterval(function () {
         
         self.obstaclesArray.forEach(function (obstacle) {
@@ -66,7 +66,6 @@ Game.prototype.updateObstacle = function () {
 
     }, 10)
     
-
 }
 
 Game.prototype.check = function (obstacle) {

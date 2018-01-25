@@ -37,6 +37,16 @@ Player.prototype.movePlayer = function (e) {
         }
     }
 
+    if (e.keyCode==38) {
+        self.playerTop -= 100;
+        self.player.style.top = self.playerTop + 'px';
+    }
+
+    if (e.keyCode==40) {
+        self.playerTop += 100;
+        self.player.style.top = self.playerTop + 'px';
+    }
+
 }
 
 Player.prototype.getPlayerLeft = function () {
