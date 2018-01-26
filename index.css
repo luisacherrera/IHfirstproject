@@ -2,7 +2,7 @@
 
 /* ---- reset ---- */
 
-html {
+  html {
     box-sizing: border-box;
   }
   *, *:before, *:after {
@@ -23,7 +23,7 @@ html {
   /* ---- components ---- */
   
   #startscreen {
-      text-align: center;
+    text-align: center;
   }
 
   #startscreen img {
@@ -49,21 +49,20 @@ html {
   #falcon {
     width: 200px;
     height: 150px;
+    margin-top: 50px;
     background-image: url('./images/millenium_falcon.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
   }
 
-  /* #game {
-
-  } */
-
   #grid {
     width: 400px;
     height: 600px;
-    margin-top: 50px;
-    margin-left: 200px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     background: #FEDD00;
   }
@@ -77,7 +76,7 @@ html {
     background-image: url('./images/meteor.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: 85%;
   }
 
   #player {
@@ -105,6 +104,7 @@ html {
  
   #gameover h2 {
     margin-top: 100px;
+    margin-bottom: 70px;
     color: #FEDD00;
     font-size: 30px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -120,6 +120,7 @@ html {
     font-size: 16px;
     font-weight: 800;
   }
+
 
 
   

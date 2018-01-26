@@ -18,10 +18,6 @@ function Game (mainSite) {
     self.game.appendChild(self.gameGrid);
 
     var gameGrid = self.gameGrid;
-
-    // SCORE
-
-
     
     // PLAYER
 

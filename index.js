@@ -112,11 +112,12 @@ function main () {
 
     var imageOver = document.createElement('img');
     imageOver.setAttribute('src', 'images/game-over.png');
+    imageOver.setAttribute('id', 'ended');
     gameOverElement.appendChild(imageOver);
 
-    var actualScore = document.createElement('h2');
-    actualScore.innerText = 'Your Score: ';
-    gameOverElement.appendChild(actualScore);
+    var endMessage = document.createElement('h2');
+    endMessage.innerText = 'I HAD A BAD FEELING ABOUT THIS...';
+    gameOverElement.appendChild(endMessage);
 
     playAgainButton = document.createElement('button');
     playAgainButton.innerText = 'PLAY AGAIN';
