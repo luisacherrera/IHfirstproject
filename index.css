@@ -2,125 +2,124 @@
 
 /* ---- reset ---- */
 
-  html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-    
-  /* ---- typography ---- */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
   
-  body {
-      background-color: black;
-      position: relative;
-  }
-  
-  /* ---- layout ---- */
-  
-  
-  
-  /* ---- components ---- */
-  
-  #startscreen {
-    text-align: center;
-  }
+/* ---- typography ---- */
 
-  #startscreen img {
-    height: 400px;
-    border: 10px solid;
-    border-color: #FEDD00;
-    border-radius: 20px;
-    margin: 25px;
-  }
+body {
+  background-color: black;
+  position: relative;
+}
 
-  #startscreen button {
-    height: 50px;
-    width: 100px;
-    color: #fedd00;
-    border: 3px solid;
-    border-radius: 5px;
-    background: black;
-    font-size: 16px;
-    font-weight: 800;
-    margin-top: 20px;
-  }
-
-  #falcon {
-    width: 200px;
-    height: 150px;
-    margin-top: 50px;
-    background-image: url('./images/millenium_falcon.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-  }
-
-  #grid {
-    width: 400px;
-    height: 600px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    background: #FEDD00;
-  }
-
-  .bump {
-    width: 80px;
-    height: 70px;
-    position: absolute;
-    margin-left: 10px;
-    margin-right: 10px;
-    background-image: url('./images/meteor.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 85%;
-  }
-
-  #player {
-    width: 80px;
-    height: 70px;
-    position: absolute;
-    margin-left: 10px;
-    margin-right: 10px;
-    top: 530px;
-    background-image: url('./images/monochrome.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    left: 0;
-  }
-
-  #gameover {
-    text-align: center;
-  }
-
-  #gameover img {
-    margin-top: 200px;
-    width: 500px;
-  }
- 
-  #gameover h2 {
-    margin-top: 100px;
-    margin-bottom: 70px;
-    color: #FEDD00;
-    font-size: 30px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  }
-
-  #gameover button {
-    height: 50px;
-    width: 100px;
-    color: #fedd00;
-    border: 3px solid;
-    border-radius: 5px;
-    background: black;
-    font-size: 16px;
-    font-weight: 800;
-  }
+/* ---- layout ---- */
 
 
 
-  
+/* ---- components ---- */
+
+#startscreen {
+  text-align: center;
+}
+
+#startscreen img {
+  height: 400px;
+  border: 10px solid;
+  border-color: #FEDD00;
+  border-radius: 20px;
+  margin: 25px;
+}
+
+#startscreen button {
+  height: 50px;
+  width: 100px;
+  color: #fedd00;
+  border: 3px solid;
+  border-radius: 5px;
+  background: black;
+  font-size: 16px;
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+#falcon {
+  width: 200px;
+  height: 150px;
+  margin-top: 50px;
+  background-image: url('./images/millenium_falcon.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+}
+
+#grid {
+  width: 400px;
+  height: 600px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background: #FEDD00;
+}
+
+.bump {
+  width: 80px;
+  height: 70px;
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-image: url('./images/meteor.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 85%;
+}
+
+#player {
+  width: 80px;
+  height: 70px;
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  top: 530px;
+  background-image: url('./images/monochrome.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  left: 0;
+}
+
+#gameover {
+  text-align: center;
+}
+
+#gameover img {
+  margin-top: 200px;
+  width: 500px;
+}
+
+#gameover h2 {
+  margin-top: 100px;
+  margin-bottom: 70px;
+  color: #FEDD00;
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#gameover button {
+  height: 50px;
+  width: 100px;
+  color: #fedd00;
+  border: 3px solid;
+  border-radius: 5px;
+  background: black;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+
+

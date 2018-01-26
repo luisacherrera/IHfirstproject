@@ -33,7 +33,7 @@ function Game (mainSite) {
 
     self.counter = 100;
 
-    setInterval(function (){
+    self.pushInterval = setInterval(function (){
         
         self.counter --;
         
@@ -83,6 +83,7 @@ Game.prototype.check = function (obstacle) {
     if (collideTop && collideBottom && collideLeft && collideRight) {
         
         clearInterval(self.newInterval);
+        clearInterval(self.pushInterval);
         self.onEnded();
 
     }
