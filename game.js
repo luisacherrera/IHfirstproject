@@ -45,6 +45,13 @@ function Game (mainSite) {
     
     self.updateObstacle();
 
+    //BACKGROUND MUSIC
+
+    self.backGroundMusic = document.createElement('audio');
+    self.backGroundMusic.setAttribute('src', 'audios/duel-fates.mp3');
+    self.backGroundMusic.setAttribute('autoplay', 'true');
+    self.game.appendChild(self.backGroundMusic);
+
     mainSite.appendChild(self.game);
 
 }

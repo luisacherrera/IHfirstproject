@@ -123,6 +123,11 @@ function main () {
     playAgainButton.innerText = 'PLAY AGAIN';
     gameOverElement.appendChild(playAgainButton);
 
+    var endMusic = document.createElement('audio');
+    endMusic.setAttribute('src', 'audios/force-theme.mp3');
+    endMusic.setAttribute('autoplay', 'true');
+    gameOverElement.appendChild(endMusic);
+
     playAgainButton.addEventListener('click', startAgain);
 
     mainSite.appendChild(gameOverElement);
