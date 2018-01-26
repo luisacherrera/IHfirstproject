@@ -8,10 +8,17 @@ function Game (mainSite) {
 
     self.onEnded;
 
-    // GAMEGRID
-
     self.game = document.createElement('div');
     self.game.setAttribute('id', 'game');
+
+    // INSTRUCTIONS
+
+    self.instructions = document.createElement('img');
+    self.instructions.setAttribute('id', 'instructions');
+    self.instructions.setAttribute('src', 'images/instructions.png');
+    self.game.appendChild(self.instructions);
+
+    // GAMEGRID
 
     self.gameGrid = document.createElement('div');
     self.gameGrid.setAttribute('id', 'grid');

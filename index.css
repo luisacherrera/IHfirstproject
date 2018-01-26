@@ -49,7 +49,7 @@ body {
 #falcon {
   width: 200px;
   height: 150px;
-  margin-top: 50px;
+  margin-top: 20px;
   background-image: url('./images/millenium_falcon.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
@@ -61,10 +61,16 @@ body {
   height: 600px;
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 100px;
+  float: left;
   position: relative;
   background: #FEDD00;
+}
+
+#instructions {
+  margin-top: 200px;
+  margin-left: 150px;
+  float: left;
 }
 
 .bump {
